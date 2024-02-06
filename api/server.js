@@ -1,9 +1,12 @@
 import { log } from "console";
 import express from "express";
 import mongoose from "mongoose";
+import dotenv from "dotenv"
+
+dotenv.config();
 
 
-mongoose.connect('mongodb+srv://mern-auth:mern-auth@mern.4xp8tv7.mongodb.net/mern-auth?retryWrites=true&w=majority').then(()=>{
+mongoose.connect(process.env.MONGO).then(()=>{
     log("Connected to MongoDB");
 }).catch((err)=>{
     log(err);
